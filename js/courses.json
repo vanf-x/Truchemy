@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "picture": "", 
+        "name": "Curso de HTML y CSS",
+        "tutor": "Diego Coppola",
+        "price": 89.99,
+        "offer": 9.99
+    },
+    {
+        "id": 2,
+        "picture": "", 
+        "name": "Curso de HTML y CSS",
+        "tutor": "Diego Coppola",
+        "price": 89.99,
+        "offer": 9.99
+    }
+]

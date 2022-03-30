@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/2ca277c051.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <title>Truchemy</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-top">
+                <h1>
+                    <span>T</span>ruchemy
+                </h1>
+                <ul style="list-style: none;">
+                    <li class="submenu">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div id="cart">
+                            <table id="cart-list">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <button class="reset-btn" id="reset-btn">Vaciar carrito</button>
+                            <button class="pay-btn" id="pay-btn">
+                                <a href="#">Proceder a pagar</a>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="nav-search">
+            <label for="search" style="margin-right: 10px;">Aprendé algo nuevo!</label>
+            <div class="nav-search-input">
+                <input type="text" id="search" name="search">
+                <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+        </div>
+        <main>
+            <section class="hero">
+                <img id="hero-img" src="./assets/hero.jpg" alt="hero-img">
+                <footer class="hero-footer">
+                    <div class="hero-footer-1 df">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div class="hero-footer-subtitles">
+                            <h3>Más de 20000 cursos</h3>
+                            <h4>actualizados constantemente</h4>
+                        </div>
+                    </div>
+                    <div class="hero-footer-2 df">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <div class="hero-footer-subtitles">
+                            <h3>Los mejores tutores</h3>
+                            <h4>calificados para ayudarte a crecer</h4>
+                        </div>
+                    </div>
+                    <div class="hero-footer-3 df">
+                        <i class="fa-solid fa-trophy"></i>
+                        <div class="hero-footer-subtitles">
+                            <h3>Diferenciate del resto</h3>
+                            <h4>y lográ todas tus metas</h4>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+            <section class="courses">
+                <h2>Cursos en línea</h2>
+                <div class="courses-container">
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Tutor xvan-f</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="discount">$89.99</p>
+                                <span id="course-price">$9.99</span>
+                            </div>
+                            <button>Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <section class="footer-left">
+                <ul class="ls-n">
+                    <li>
+                        <a href="#">Políticas de privacidad</a>
+                    </li>
+                    <li>
+                        <a href="#">Políticas de calidad</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto legal</a>
+                    </li>
+                    <li>
+                        <a href="#">Reglas de la comunidad</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="footer-right">
+                <ul class="ls-n">
+                    <li>
+                        <a href="#">¿Quiénes somos?</a>
+                    </li>
+                    <li>
+                        <a href="#">FAQ</a>
+                    </li>
+                    <li>
+                        <a href="#">Contáctanos</a>
+                    </li>
+                    <li>
+                        <a href="#">Sobre el desarrollador</a>
+                    </li>
+                </ul>
+            </section>
+        </footer>
+        <script src="./js/script.js"></script>
+    </body>
+</html>

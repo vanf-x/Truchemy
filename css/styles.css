@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.df {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.ls-n {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Raleway", sans-serif;
+}
+
+header .header-top {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 3rem;
+  background-color: #1e2126;
+}
+header .header-top h1 {
+  margin: 0;
+  color: #eaedf2;
+  font-family: "DM Serif Display", serif;
+}
+header .header-top h1 span {
+  color: red;
+}
+header .header-top ul .submenu {
+  position: relative;
+}
+header .header-top ul .submenu i {
+  color: #464b52;
+}
+header .header-top ul .submenu #cart {
+  display: none;
+}
+header .header-top ul .submenu #cart #cart-list {
+  font-size: 2rem;
+  font-weight: normal;
+}
+header .header-top ul .submenu:hover #cart {
+  display: block;
+  position: absolute;
+  color: #eaedf2;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+  background-color: #16191c;
+  padding: 2rem;
+  min-height: 40rem;
+  min-width: 30rem;
+}
+header .header-top ul .submenu:hover #cart button {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+}
+header .header-top ul .submenu:hover #cart .reset-btn {
+  width: 100%;
+  background-color: transparent;
+  color: red;
+  border-radius: 0;
+  padding: 1rem;
+  border-color: red;
+}
+header .header-top ul .submenu:hover #cart .pay-btn {
+  width: 100%;
+  background-color: #00a9c4;
+  border-radius: 0%;
+  padding: 1rem;
+  border-color: #00a9c4;
+}
+header .header-top ul .submenu:hover #cart .pay-btn a {
+  text-decoration: none;
+  color: white;
+  width: 100%;
+}
+
+.nav-search {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  background-color: #464b52;
+  color: #eaedf2;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-search .nav-search-input {
+  display: flex;
+}
+
+main {
+  background-color: #151518;
+}
+main .hero {
+  width: 100%;
+  background: linear-gradient(90deg, #003dac 0%, #009eb1 100%);
+}
+main .hero #hero-img {
+  width: 100%;
+}
+main .hero .hero-footer {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #003dac 0%, #009eb1 100%);
+  padding: 1rem;
+  color: #eaedf2;
+}
+main .hero .hero-footer .fa-solid {
+  font-size: 2.5rem;
+  margin: 0;
+  margin-right: 1rem;
+}
+main .hero .hero-footer .hero-footer-subtitles h3,
+main .hero .hero-footer .hero-footer-subtitles h4 {
+  margin: 0;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+}
+main .courses h2 {
+  text-align: center;
+  font-size: 3vw;
+  color: #eaedf2;
+}
+main .courses .courses-container {
+  display: flex;
+  color: #eaedf2;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+main .courses .courses-container .courses-container-card {
+  background-color: #2b2b2c;
+  font-size: 1vw;
+  max-width: 25rem;
+  margin: 2rem;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-img {
+  width: 100%;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-img img {
+  width: 100%;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info {
+  height: 50%;
+  padding: 2rem;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info h4 {
+  font-size: 1.75rem;
+  margin: 0;
+  margin: 5px 0;
+  font-weight: normal;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info .prices {
+  display: flex;
+  justify-content: space-between;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info .prices p {
+  font-size: 2.5rem;
+  text-decoration: line-through;
+  margin: 5px 0;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info .prices span {
+  font-size: 3rem;
+  color: red;
+  font-weight: bold;
+  margin: 5px 0;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info button {
+  font-size: 2rem;
+  background-color: skyblue;
+  border: 0px;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  color: #eaedf2;
+  font-weight: bold;
+  border-radius: 7rem;
+  margin-top: 2rem;
+}
+main .courses .courses-container .courses-container-card .courses-container-card-info button:hover {
+  background-color: #54c4f0;
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1e2126;
+  font-size: 2rem;
+  padding: 2rem 0;
+}
+footer a {
+  text-decoration: none;
+  color: #eaedf2;
+}
+
+.animated {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.show-up {
+  animation: showUp 1s;
+}
+
+@keyframes showUp {
+  0% {
+    transform: translateY(60px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@media only screen and (max-width: 992px) {
+  .hero-footer-subtitles h3,
+.hero-footer-subtitles h4 {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .courses-container-card {
+    min-width: 40rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .nav-search {
+    flex-direction: column;
+  }
+  .nav-search .nav-search-input {
+    justify-content: center;
+    max-width: 15rem;
+    margin-top: 2rem;
+  }
+}
+@media only screen and (max-width: 486px) {
+  .header-top h1 {
+    font-size: 4rem;
+  }
+
+  .submenu i {
+    font-size: 3rem;
+  }
+
+  .hero-footer-1,
+.hero-footer-2,
+.hero-footer-3 {
+    flex-direction: column;
+  }
+
+  .courses-container-card {
+    min-width: 35rem;
+  }
+
+  .hero-footer-subtitles h4 {
+    margin-top: 4rem;
+  }
+
+  .submenu:hover #cart {
+    min-width: 10rem;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

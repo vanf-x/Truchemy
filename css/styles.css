@@ -21,12 +21,47 @@
   list-style: none;
 }
 
+.toast {
+  position: fixed;
+  font-size: 2rem;
+  margin: 0;
+  z-index: 2;
+  color: white;
+  padding: 1rem;
+  opacity: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.show-up-toast {
+  animation: show-up-toast 0.5s;
+}
+
+@keyframes show-up-toast {
+  0% {
+    transform: translateY(-5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.success {
+  background-color: #39b309;
+}
+
+.error {
+  background-color: #b30909;
+}
+
 html {
   font-size: 62.5%;
   font-family: "Raleway", sans-serif;
 }
 
 header .header-top {
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -106,6 +141,29 @@ header .header-top ul .submenu:hover #cart .pay-btn a {
 }
 .nav-search .nav-search-input {
   display: flex;
+  align-items: center;
+}
+.nav-search .nav-search-input input {
+  border-radius: 5rem 0 0 5rem;
+  border: 0px;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+}
+.nav-search .nav-search-input button {
+  border-radius: 0 5rem 5rem 0;
+  border: 0px;
+  padding-top: 0.2rem;
+  margin-right: 0.7rem;
+  padding-left: 0.7rem;
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
+  color: red;
+  background-color: #151518;
+}
+.nav-search .nav-search-input button:hover {
+  cursor: pointer;
 }
 
 main {
@@ -150,6 +208,7 @@ main .courses .courses-container {
   align-items: center;
   flex-wrap: wrap;
   width: 80%;
+  max-width: 90rem;
   margin: 0 auto;
 }
 main .courses .courses-container .courses-container-card {
@@ -195,7 +254,7 @@ main .courses .courses-container .courses-container-card .courses-container-card
 }
 main .courses .courses-container .courses-container-card .courses-container-card-info button {
   font-size: 2rem;
-  background-color: skyblue;
+  background-color: #006BAF;
   border: 0px;
   padding: 1rem 0.5rem;
   width: 100%;
@@ -203,9 +262,10 @@ main .courses .courses-container .courses-container-card .courses-container-card
   font-weight: bold;
   border-radius: 7rem;
   margin-top: 2rem;
+  transition: all 0.3s;
 }
 main .courses .courses-container .courses-container-card .courses-container-card-info button:hover {
-  background-color: #54c4f0;
+  background-color: #2c89c4;
   cursor: pointer;
 }
 

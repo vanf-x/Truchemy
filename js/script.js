@@ -1,3 +1,4 @@
+//classes
 class Course {
   constructor(id, picture, name, tutor, stars, price, offer) {
     this.id = id;
@@ -16,27 +17,25 @@ let animated;
 resetBtn = document.querySelector("#reset-btn");
 
 //
-fillCoursesCart();
+
 window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(()=>{
-console.log(animated);
-animated = document.querySelectorAll(".animated");
-
-window.addEventListener("scroll", showScroll);
-
-  }, 100)
+  fillCoursesCart();
+  window.addEventListener("scroll", showScroll);
 });
-//
-  function showScroll() {
-    let scrollTop = document.documentElement.scrollTop;
-    for (let i = 0; i < animated.length; i++) {
-      let animatedHeight = animated[i].offsetTop;
-      if (animatedHeight - 500 < scrollTop) {
-        animated[i].style.opacity = 1;
-        animated[i].classList.add("show-up");
-      }
+
+//scroll animation for each course
+function showScroll() {
+  let scrollTop = document.documentElement.scrollTop;
+  for (let i = 0; i < animated.length; i++) {
+    let animatedHeight = animated[i].offsetTop;
+    if (animatedHeight - 500 < scrollTop) {
+      animated[i].style.opacity = 1;
+      animated[i].classList.add("show-up");
     }
   }
+}
+
+//fetch from courses.json() & creates objs course for courses array.
 function fillCoursesCart() {
   const url = "../js/courses.json";
   fetch(url)
@@ -60,7 +59,7 @@ function fillCoursesCart() {
       fillCoursesContainer(courses);
     });
 }
-
+//creates HTML inside coursesContainer
 function fillCoursesContainer(coursesArray) {
   const fragment = document.createDocumentFragment();
   const coursesContainer = document.querySelector("#courses-container");
@@ -77,7 +76,7 @@ function fillCoursesContainer(coursesArray) {
                             <h4>${el.tutor}</h4>
                             <img src="${el.stars}" alt="stars">
                             <div class="prices">
-                                <p class="discount">${el.price}</p>
+                                <p class="discount">$${el.price}</p>
                                 <span id="course-price">$${el.offer}</span>
                             </div>
                             <button class="add-cart-button" id="button${el.id}" data-id="${el.id}">Agregar</button>
@@ -87,12 +86,14 @@ function fillCoursesContainer(coursesArray) {
     fragment.appendChild(div);
   });
   coursesContainer.appendChild(fragment);
+  animated = document.querySelectorAll(".animated");
+  console.log(animated);
 }
-// fillCoursesContainer(courses);
 
 //EVENTO DE BOTON
-resetBtn.addEventListener("click", resetCarr);
+resetBtn.addEventListener("click", resetCart);
 
+//notifiaction message
 function showMessage(message) {
   const notification = document.getElementById("notification");
   const p = document.createElement("p");
@@ -103,10 +104,11 @@ function showMessage(message) {
     p.remove();
   }, 2000);
 }
-function resetCarr() {
+
+//resets cart
+function resetCart() {
   showMessage("Carrito vaciado con éxito");
   let cart = [];
 }
 
 /////////////////////////////////
-

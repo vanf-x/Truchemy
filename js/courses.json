@@ -1,18 +1,182 @@
 [
-    {
-        "id": 1,
-        "picture": "", 
-        "name": "Curso de HTML y CSS",
-        "tutor": "Diego Coppola",
-        "price": 89.99,
-        "offer": 9.99
-    },
-    {
-        "id": 2,
-        "picture": "", 
-        "name": "Curso de HTML y CSS",
-        "tutor": "Diego Coppola",
-        "price": 89.99,
-        "offer": 9.99
-    }
+  {
+    "id": 1,
+    "picture": "../assets/curso1.jpg",
+    "name": "Curso de HTML y CSS",
+    "tutor": "Hari Seldon",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 2,
+    "picture": "../assets/curso2.jpg",
+    "name": "Curso de Javascript",
+    "tutor": "Lord Dorwin",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 3,
+    "picture": "../assets/curso3.jpg",
+    "name": "Curso de React",
+    "tutor": "Lundin Crast",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 4,
+    "picture": "../assets/curso4.jpg",
+    "name": "Curso de Linux",
+    "tutor": "Gaal Dornick",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 5,
+    "picture": "../assets/curso5.jpg",
+    "name": "Curso de Seguridad Informática",
+    "tutor": "Bor Alurin",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 6,
+    "picture": "../assets/curso6.jpg",
+    "name": "Curso de Java",
+    "tutor": "Yate Fulham",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 7,
+    "picture": "../assets/curso7.jpg",
+    "name": "Curso de Spring",
+    "tutor": "Salvor Hardin",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 8,
+    "picture": "../assets/curso8.jpg",
+    "name": "Curso de MySQL",
+    "tutor": "Jord Fara",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 9,
+    "picture": "../assets/curso9.jpg",
+    "name": "Curso de Angular",
+    "tutor": "Lewis Pirenne",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 10,
+    "picture": "../assets/curso10.jpg",
+    "name": "Curso de MongoDB",
+    "tutor": "Hober Mallow",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 11,
+    "picture": "../assets/curso11.jpg",
+    "name": "Curso de Node JS",
+    "tutor": "Tomaz Sutt",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 12,
+    "picture": "../assets/curso12.jpg",
+    "name": "Curso de Kotlin",
+    "tutor": "Gladia Solaria",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 13,
+    "picture": "../assets/curso13.jpg",
+    "name": "Curso de C++",
+    "tutor": "Daneel Olivaw",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 14,
+    "picture": "../assets/curso14.jpg",
+    "name": "Curso de C#",
+    "tutor": "Elijah Baley",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 15,
+    "picture": "../assets/curso15.jpg",
+    "name": "Curso de Cobol",
+    "tutor": "Dors Venabili",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 16,
+    "picture": "../assets/curso16.jpg",
+    "name": "Curso de Python",
+    "tutor": "Raych Seldon",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 17,
+    "picture": "../assets/curso17.jpg",
+    "name": "Curso de Laravel",
+    "tutor": "Giskard Reventlov",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 18,
+    "picture": "../assets/curso18.jpg",
+    "name": "Curso de PHP",
+    "tutor": "Han Fastolfe",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 19,
+    "picture": "../assets/curso19.jpg",
+    "name": "Curso de Bootstrap 4",
+    "tutor": "Kelden Amadiro",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  },
+  {
+    "id": 20,
+    "picture": "../assets/curso20.jpg",
+    "name": "Curso de Django",
+    "tutor": "Eto Demerzel",
+    "stars": "./assets/estrellas.png",
+    "price": 89.99,
+    "offer": 9.99
+  }
 ]

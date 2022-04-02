@@ -28,7 +28,6 @@
   z-index: 2;
   color: white;
   padding: 1rem;
-  opacity: 0;
   right: 0;
   width: 100%;
   text-align: center;
@@ -175,11 +174,14 @@ main .hero {
 }
 main .hero #hero-img {
   width: 100%;
+  max-height: 40rem;
+  object-fit: cover;
 }
 main .hero .hero-footer {
   display: flex;
   justify-content: space-around;
   font-size: 1.5rem;
+  min-height: 10rem;
   background: linear-gradient(90deg, #003dac 0%, #009eb1 100%);
   padding: 1rem;
   color: #eaedf2;

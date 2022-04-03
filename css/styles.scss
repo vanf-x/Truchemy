@@ -108,6 +108,13 @@ header {
         min-width: 30rem;
         #cart-list {
           text-align: center;
+
+          thead{
+
+            tr{
+              height: 5rem;
+            }
+          }
           tbody {
             tr {
               height: 5rem;

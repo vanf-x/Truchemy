@@ -24,8 +24,8 @@ let $coursesContainerCard = document.querySelectorAll(
 let $addCartButton = document.querySelectorAll(".add-cart-button");
 let id = 1;
 
-//programar boton
 //programar cantidad
+//filter en el buscador
 
 //arrays
 let courses = [];
@@ -70,20 +70,21 @@ function addFunctionToAddCartButton() {
 }
 
 //add course to cart
-function addCourseToCart(element) {
-  console.log(element.dataset.id);
+function addCourseToCart(element) {//boton agregar
   courses.forEach((course) => {
+    //recorre los cursos y se fija: si el id del curso y el id del boton son iguales, agrega el curso.
     if (course.id == element.dataset.id) cart = [...cart, course];
   });
-  // console.log(cart);
   showMessage("Curso agregado con éxito");
 }
 
 //creates html in cart
 function createHMLT() {
   deleteHTML();
+
   cart.forEach((course) => {
     const { id, picture, name, price } = course;
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
         <td><img src="${picture}" alt="pic-${name}" width=100px></td>
@@ -94,13 +95,16 @@ function createHMLT() {
       `;
     $coursesList.appendChild(tr);
   });
-  console.log(cart);
-  console.log(courses);
+  // console.log(cart);
+  // console.log(courses);
 }
 
-function deleteCourse(btn){
-  const selectedBtn = document.querySelector(`#x-button-${btn}`);
-  console.log(selectedBtn.dataset.id);
+function deleteCourse(btnId) {
+  const selectedBtn = document.querySelector(`#x-button-${btnId}`);
+  // console.log(selectedBtn.dataset.id);
+  cart = cart.filter((course) => course.id != selectedBtn.dataset.id);
+  createHMLT();
+  showMessage("Curso borrado con éxito");
 }
 
 //scroll animation for each course

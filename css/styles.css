@@ -114,6 +114,9 @@ header .header-top ul .submenu:hover #cart {
 header .header-top ul .submenu:hover #cart #cart-list {
   text-align: center;
 }
+header .header-top ul .submenu:hover #cart #cart-list thead tr {
+  height: 5rem;
+}
 header .header-top ul .submenu:hover #cart #cart-list tbody tr {
   height: 5rem;
 }

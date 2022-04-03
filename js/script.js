@@ -1,114 +1,142 @@
 //classes
 class Course {
-  constructor(id, picture, name, tutor, stars, price, offer) {
+  constructor(id, picture, name, price, cantidad) {
     this.id = id;
     this.picture = picture;
     this.name = name;
-    this.tutor = tutor;
-    this.stars = stars;
     this.price = price;
-    this.offer = offer;
+    this.cantidad = 1;
   }
 }
-//CONST & LET
+//let & const
+const $completeListButton = document.querySelector("#complete-list-button");
+const $searchInput = document.querySelector("#search");
+const $searchButton = document.querySelector("#search-button");
+const $resetButton = document.querySelector("#reset-btn");
+const $paymentBtn = document.querySelector("#pay-btn");
+const $coursesList = document.querySelector("#courses-list");
+const $payButton = document.querySelector("#pay-btn");
+
+let $animated = document.querySelectorAll(".animated");
+let $coursesContainerCard = document.querySelectorAll(
+  ".courses-container-card"
+);
+let $addCartButton = document.querySelectorAll(".add-cart-button");
+let id = 1;
+
+//programar boton
+//programar cantidad
+
+//arrays
 let courses = [];
 let cart = [];
-let animated;
-resetBtn = document.querySelector("#reset-btn");
+let cartAux = [];
 
-//
-
+//execution starts
 window.addEventListener("DOMContentLoaded", () => {
-  fillCoursesCart();
   window.addEventListener("scroll", showScroll);
+  $resetButton.addEventListener("click", () => {
+    resetCart();
+  });
+  createObjCourses();
+  addFunctionToAddCartButton();
 });
+
+//creates obj courses $ fill courses array
+function createObjCourses() {
+  $coursesContainerCard.forEach((el) => {
+    const course = new Course(
+      id,
+      el.children[0].children[0].src,
+      el.children[1].children[0].textContent,
+      el.children[1].children[3].children[1].children[0].textContent
+    );
+    courses = [...courses, course];
+    id++;
+  });
+  // console.log(courses);
+}
+
+//adds event listener to $addCartButton
+function addFunctionToAddCartButton() {
+  $addCartButton.forEach((el) => {
+    const { id, picture, name, price, cantidad } = el;
+    el.addEventListener("click", () => {
+      // console.log(el.dataset.id);
+      addCourseToCart(el);
+      createHMLT();
+    });
+  });
+}
+
+//add course to cart
+function addCourseToCart(element) {
+  console.log(element.dataset.id);
+  courses.forEach((course) => {
+    if (course.id == element.dataset.id) cart = [...cart, course];
+  });
+  // console.log(cart);
+  showMessage("Curso agregado con éxito");
+}
+
+//creates html in cart
+function createHMLT() {
+  deleteHTML();
+  cart.forEach((course) => {
+    const { id, picture, name, price } = course;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+        <td><img src="${picture}" alt="pic-${name}" width=100px></td>
+        <td>${name}</td>
+        <td>${price}</td>
+        <td>${course.cantidad}</td>
+        <td><button class="x-button" id="x-button-${id}" data-id="${id}" onclick="deleteCourse(${id})">x</button></td>
+      `;
+    $coursesList.appendChild(tr);
+  });
+  console.log(cart);
+  console.log(courses);
+}
+
+function deleteCourse(btn){
+  const selectedBtn = document.querySelector(`#x-button-${btn}`);
+  console.log(selectedBtn.dataset.id);
+}
 
 //scroll animation for each course
 function showScroll() {
   let scrollTop = document.documentElement.scrollTop;
-  for (let i = 0; i < animated.length; i++) {
-    let animatedHeight = animated[i].offsetTop;
+  for (let i = 0; i < $animated.length; i++) {
+    let animatedHeight = $animated[i].offsetTop;
     if (animatedHeight - 500 < scrollTop) {
-      animated[i].style.opacity = 1;
-      animated[i].classList.add("show-up");
+      $animated[i].style.opacity = 1;
+      $animated[i].classList.add("show-up");
     }
   }
 }
 
-//fetch from courses.json() & creates objs course for courses array.
-function fillCoursesCart() {
-  const url = "../js/courses.json";
-  fetch(url)
-    .then((res) => {
-      return res.ok ? res.json() : Promise.reject(res);
-    })
-    .then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        const { id, picture, name, tutor, stars, price, offer } = data[i];
-        const course = new Course(
-          id,
-          picture,
-          name,
-          tutor,
-          stars,
-          price,
-          offer
-        );
-        courses.push(course);
-      }
-      fillCoursesContainer(courses);
-    });
+//prevents html multiplication
+function deleteHTML() {
+  while ($coursesList.firstChild) {
+    $coursesList.firstChild.remove();
+  }
 }
-//creates HTML inside coursesContainer
-function fillCoursesContainer(coursesArray) {
-  const fragment = document.createDocumentFragment();
-  const coursesContainer = document.querySelector("#courses-container");
-  coursesArray.forEach((el) => {
-    const { id, picture, name, tutor, stars, price, offer } = el;
-    const div = document.createElement("div");
-    div.innerHTML = `
-        <div class="courses-container-card animated">
-        <div class="courses-container-card-img">
-                            <img src="${el.picture}" alt="curso${el.id}">
-                        </div>
-                        <div class="courses-container-card-info">
-                            <h3>${el.name}</h3>
-                            <h4>${el.tutor}</h4>
-                            <img src="${el.stars}" alt="stars">
-                            <div class="prices">
-                                <p class="discount">$${el.price}</p>
-                                <span id="course-price">$${el.offer}</span>
-                            </div>
-                            <button class="add-cart-button" id="button${el.id}" data-id="${el.id}">Agregar</button>
-                        </div>
-                        </div>
-        `;
-    fragment.appendChild(div);
-  });
-  coursesContainer.appendChild(fragment);
-  animated = document.querySelectorAll(".animated");
-  console.log(animated);
-}
-
-//EVENTO DE BOTON
-resetBtn.addEventListener("click", resetCart);
 
 //notifiaction message
 function showMessage(message) {
-  const notification = document.getElementById("notification");
+  const $notification = document.getElementById("notification");
   const p = document.createElement("p");
   p.textContent = message;
   p.classList.add("toast", "success", "show-up-toast");
-  notification.appendChild(p);
+  $notification.appendChild(p);
   setTimeout(() => {
     p.remove();
-  }, 2000);
+  }, 1500);
 }
 
 //resets cart
 function resetCart() {
+  cart = [];
+  deleteHTML();
   showMessage("Carrito vaciado con éxito");
-  let cart = [];
 }
-
-/////////////////////////////////

@@ -54,6 +54,17 @@
   background-color: #b30909;
 }
 
+.x-button {
+  color: white;
+  background-color: red;
+  border-color: red;
+  border-radius: 99px;
+}
+
+.x-button:hover {
+  cursor: pointer;
+}
+
 html {
   font-size: 62.5%;
   font-family: "Raleway", sans-serif;
@@ -100,6 +111,12 @@ header .header-top ul .submenu:hover #cart {
   min-height: 40rem;
   min-width: 30rem;
 }
+header .header-top ul .submenu:hover #cart #cart-list {
+  text-align: center;
+}
+header .header-top ul .submenu:hover #cart #cart-list tbody tr {
+  height: 5rem;
+}
 header .header-top ul .submenu:hover #cart button {
   margin: 0.5rem 0;
   font-size: 2rem;
@@ -118,6 +135,7 @@ header .header-top ul .submenu:hover #cart .pay-btn {
   border-radius: 0%;
   padding: 1rem;
   border-color: #00a9c4;
+  visibility: hidden;
 }
 header .header-top ul .submenu:hover #cart .pay-btn a {
   text-decoration: none;
@@ -243,12 +261,12 @@ main .courses .courses-container .courses-container-card .courses-container-card
   display: flex;
   justify-content: space-between;
 }
-main .courses .courses-container .courses-container-card .courses-container-card-info .prices p {
+main .courses .courses-container .courses-container-card .courses-container-card-info .prices .line-through {
   font-size: 2.5rem;
   text-decoration: line-through;
   margin: 5px 0;
 }
-main .courses .courses-container .courses-container-card .courses-container-card-info .prices span {
+main .courses .courses-container .courses-container-card .courses-container-card-info .prices .red {
   font-size: 3rem;
   color: red;
   font-weight: bold;
@@ -256,7 +274,7 @@ main .courses .courses-container .courses-container-card .courses-container-card
 }
 main .courses .courses-container .courses-container-card .courses-container-card-info button {
   font-size: 2rem;
-  background-color: #006BAF;
+  background-color: #006baf;
   border: 0px;
   padding: 1rem 0.5rem;
   width: 100%;
@@ -269,6 +287,23 @@ main .courses .courses-container .courses-container-card .courses-container-card
 main .courses .courses-container .courses-container-card .courses-container-card-info button:hover {
   background-color: #2c89c4;
   cursor: pointer;
+}
+main .courses .back-to-courses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .courses .back-to-courses button {
+  color: green;
+  font-size: 4rem;
+  background-color: transparent;
+  border-color: transparent;
+  margin-bottom: 5rem;
+  visibility: hidden;
+}
+main .courses .back-to-courses button:hover {
+  cursor: pointer;
+  color: #04db04;
 }
 
 footer {

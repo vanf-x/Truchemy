@@ -9,14 +9,13 @@
         <link rel="stylesheet" href="./css/normalize.css">
         <title>Truchemy</title>
     </head>
-    <body >
-        <div id="notification">
-        </div>
+    <body>
+        <div id="notification"></div>
         <header>
             <div class="header-top">
                 <h1>
-                    <span>T</span>ruchemy
-
+                    <span>T</span>
+                    ruchemy
                 </h1>
                 <ul style="list-style: none;">
                     <li class="submenu">
@@ -32,11 +31,12 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody></tbody>
+                                <tbody id="courses-list">
+                                </tbody>
                             </table>
-                            <button class="reset-btn" id="reset-btn">Vaciar carrito</button>
+                            <button class="reset-btn" id="reset-btn" >Vaciar carrito</button>
                             <button class="pay-btn" id="pay-btn">
-                                <a href="#">Proceder a pagar</a>
+                                <a href="./html/payment.html">Proceder a pagar</a>
                             </button>
                         </div>
                     </li>
@@ -46,8 +46,8 @@
         <div class="nav-search">
             <label for="search" style="margin-right: 10px;">Aprendé algo nuevo!</label>
             <div class="nav-search-input">
-                <input type="text" id="search" name="search">
-                <button>
+                <input type="text" id="search" name="search" style="padding-left: 10px;">
+                <button id="search-button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
@@ -79,12 +79,318 @@
                     </div>
                 </footer>
             </section>
-
             <section class="courses">
                 <h2>Cursos en línea</h2>
+
                 <div class="courses-container" id="courses-container">
-                    
+
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso1.jpg" alt="curso1">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de HTML y CSS</h3>
+                            <h4>Hari Seldon</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button1" data-id="1">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso2.jpg" alt="curso2">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Javascript</h3>
+                            <h4>Lord Dorwin</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button2" data-id="2">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso3.jpg" alt="curso3">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de React</h3>
+                            <h4>Lundin Crast</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button3" data-id="3">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso4.jpg" alt="curso4">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Linux</h3>
+                            <h4>Gaal Dornick</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button4" data-id="4">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso5.jpg" alt="curso5">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Seguridad Informática</h3>
+                            <h4>Bor Alurin</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button5" data-id="5">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso6.jpg" alt="curso6">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Java</h3>
+                            <h4>Yate Fulham</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button6" data-id="6">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso7.jpg" alt="curso7">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Spring</h3>
+                            <h4>Salvor Hardin</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button7" data-id="7">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso8.jpg" alt="curso8">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de MySQL</h3>
+                            <h4>Jord Fara</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button8" data-id="8">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso9.jpg" alt="curso9">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Angular</h3>
+                            <h4>Lewis Pirenne</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button9" data-id="9">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso10.jpg" alt="curso10">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de MongoDB</h3>
+                            <h4>Hober Mallow</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button10" data-id="10">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso11.jpg" alt="curso11">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Node JS</h3>
+                            <h4>Tomaz Sutt</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button11" data-id="11">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso12.jpg" alt="curso12">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Kotlin</h3>
+                            <h4>Gladia Solaria</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button12" data-id="12">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso13.jpg" alt="curso13">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de C++</h3>
+                            <h4>Daneel Olivaw</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button13" data-id="13">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso14.jpg" alt="curso14">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de C#</h3>
+                            <h4>Elijah Baley</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button14" data-id="14">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso15.jpg" alt="curso15">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Cobol</h3>
+                            <h4>Dors Venabili</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button15" data-id="15">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso16.jpg" alt="curso16">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Python</h3>
+                            <h4>Raych Seldon</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button16" data-id="16">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso17.jpg" alt="curso17">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Laravel</h3>
+                            <h4>Giskard Reventlov</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button17" data-id="17">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso18.jpg" alt="curso18">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de PHP</h3>
+                            <h4>Han Fastolfe</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button18" data-id="18">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso19.jpg" alt="curso19">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Bootstrap 4</h3>
+                            <h4>Kelden Amadiro</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button19" data-id="19">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="courses-container-card animated">
+                        <div class="courses-container-card-img">
+                            <img src="./assets/curso20.jpg" alt="curso20">
+                        </div>
+                        <div class="courses-container-card-info">
+                            <h3>Curso de Django</h3>
+                            <h4>Eto Demerzel</h4>
+                            <img src="./assets/estrellas.png" alt="stars">
+                            <div class="prices">
+                                <p class="line-through">$89.99</p>
+                                <p class="red">$<span>9.99</span></p>
+                            </div>
+                            <button class="add-cart-button" id="button20" data-id="20">Agregar</button>
+                        </div>
+                    </div>
+
                 </div>
+
+                    <div class="back-to-courses">
+                        <button id="complete-list-button"> < < Volver a la lista completa</button>
+                    </div>
+
             </section>
         </main>
         <footer>
@@ -122,7 +428,5 @@
             </section>
         </footer>
         <script src="./js/script.js"></script>
-
-
     </body>
 </html>

@@ -1,21 +1,21 @@
 //classes
 class Course {
-  constructor(id, picture, name, price, cantidad) {
+  constructor(id, picture, name, price, quantity) {
     this.id = id;
     this.picture = picture;
     this.name = name;
     this.price = price;
-    this.cantidad = 1;
+    this.quantity = 1;
   }
 }
-//let & const
+//let & const. $makes reference to DOM.
 const $completeListButton = document.querySelector("#complete-list-button");
 const $searchInput = document.querySelector("#search");
 const $searchButton = document.querySelector("#search-button");
 const $resetButton = document.querySelector("#reset-btn");
 const $paymentBtn = document.querySelector("#pay-btn");
 const $coursesList = document.querySelector("#courses-list");
-const $payButton = document.querySelector("#pay-btn");
+const $total = document.querySelector('#total');
 
 let $animated = document.querySelectorAll(".animated");
 let $coursesContainerCard = document.querySelectorAll(
@@ -23,14 +23,14 @@ let $coursesContainerCard = document.querySelectorAll(
 );
 let $addCartButton = document.querySelectorAll(".add-cart-button");
 let id = 1;
+let totalPayment = 0;
 
-//programar cantidad
 //filter en el buscador
 
 //arrays
 let courses = [];
+let coursesAux = [];
 let cart = [];
-let cartAux = [];
 
 //execution starts
 window.addEventListener("DOMContentLoaded", () => {
@@ -54,15 +54,13 @@ function createObjCourses() {
     courses = [...courses, course];
     id++;
   });
-  // console.log(courses);
 }
 
 //adds event listener to $addCartButton
 function addFunctionToAddCartButton() {
   $addCartButton.forEach((el) => {
-    const { id, picture, name, price, cantidad } = el;
+    const { id, picture, name, price, quantity } = el;
     el.addEventListener("click", () => {
-      // console.log(el.dataset.id);
       addCourseToCart(el);
       createHMLT();
     });
@@ -70,18 +68,42 @@ function addFunctionToAddCartButton() {
 }
 
 //add course to cart
-function addCourseToCart(element) {//boton agregar
+function addCourseToCart(element) {
+  //boton agregar
   courses.forEach((course) => {
     //recorre los cursos y se fija: si el id del curso y el id del boton son iguales, agrega el curso.
     if (course.id == element.dataset.id) cart = [...cart, course];
   });
+  let repeated = 0;
+  cart.forEach((course) => {
+    if (course.id == cart[cart.length - 1].id) {
+      repeated++;
+      if (repeated > 1) {
+        course.quantity++;
+        cart.pop();
+      }
+    }
+  });
+  setTotalPayment();
   showMessage("Curso agregado con éxito");
+}
+
+function setTotalPayment(){
+  totalPayment = 0;
+  cart.forEach(el=>{
+    totalPayment += (el.price * el.quantity);
+  })
+  $total.textContent = totalPayment.toFixed(2);
 }
 
 //creates html in cart
 function createHMLT() {
   deleteHTML();
-
+  if (cart.length > 0) {
+    $paymentBtn.style.visibility = "visible";
+  }else{
+    $paymentBtn.style.visibility = "hidden";
+  }
   cart.forEach((course) => {
     const { id, picture, name, price } = course;
 
@@ -90,21 +112,25 @@ function createHMLT() {
         <td><img src="${picture}" alt="pic-${name}" width=100px></td>
         <td>${name}</td>
         <td>${price}</td>
-        <td>${course.cantidad}</td>
+        <td>${course.quantity}</td>
         <td><button class="x-button" id="x-button-${id}" data-id="${id}" onclick="deleteCourse(${id})">x</button></td>
       `;
     $coursesList.appendChild(tr);
+
+
   });
-  // console.log(cart);
-  // console.log(courses);
 }
 
+//deletes course with "x" button
 function deleteCourse(btnId) {
   const selectedBtn = document.querySelector(`#x-button-${btnId}`);
-  // console.log(selectedBtn.dataset.id);
-  cart = cart.filter((course) => course.id != selectedBtn.dataset.id);
+  courses.filter(c=>c.quantity = 1);
+  cart = cart.filter((c) => c.id != selectedBtn.dataset.id);
   createHMLT();
+  setTotalPayment();
+
   showMessage("Curso borrado con éxito");
+  
 }
 
 //scroll animation for each course
@@ -142,5 +168,12 @@ function showMessage(message) {
 function resetCart() {
   cart = [];
   deleteHTML();
+  $paymentBtn.style.visibility = "hidden";
   showMessage("Carrito vaciado con éxito");
+  totalPayment = 0;
+  $total.textContent = totalPayment;
+  courses.forEach(course =>{
+    course.quantity = 1;
+  })
 }
+

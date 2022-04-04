@@ -131,6 +131,7 @@ header .header-top ul .submenu:hover #cart .reset-btn {
   border-radius: 0;
   padding: 1rem;
   border-color: red;
+  cursor: pointer;
 }
 header .header-top ul .submenu:hover #cart .pay-btn {
   width: 100%;
@@ -144,6 +145,10 @@ header .header-top ul .submenu:hover #cart .pay-btn a {
   text-decoration: none;
   color: white;
   width: 100%;
+}
+header .header-top ul .submenu:hover #cart .pay-btn:hover {
+  background-color: #08cceb;
+  border-color: #00a9c4;
 }
 
 .nav-search {

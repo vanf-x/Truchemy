@@ -132,6 +132,7 @@ header {
           border-radius: 0;
           padding: 1rem;
           border-color: red;
+          cursor: pointer;
         }
         .pay-btn {
           width: 100%;
@@ -145,6 +146,11 @@ header {
             color: white;
             width: 100%;
           }
+        }
+        .pay-btn:hover{
+          background-color: #08cceb;
+          border-color: #00a9c4;
+
         }
       }
     }

@@ -15,7 +15,8 @@ const $searchButton = document.querySelector("#search-button");
 const $resetButton = document.querySelector("#reset-btn");
 const $paymentBtn = document.querySelector("#pay-btn");
 const $coursesList = document.querySelector("#courses-list");
-const $total = document.querySelector('#total');
+const $total = document.querySelector("#total");
+const $coursesContainer = document.querySelector("#courses-container");
 
 let $animated = document.querySelectorAll(".animated");
 let $coursesContainerCard = document.querySelectorAll(
@@ -40,6 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   createObjCourses();
   addFunctionToAddCartButton();
+  $searchButton.addEventListener("click", searchCourse);
 });
 
 //creates obj courses $ fill courses array
@@ -88,20 +90,20 @@ function addCourseToCart(element) {
   showMessage("Curso agregado con éxito");
 }
 
-function setTotalPayment(){
+function setTotalPayment() {
   totalPayment = 0;
-  cart.forEach(el=>{
-    totalPayment += (el.price * el.quantity);
-  })
+  cart.forEach((el) => {
+    totalPayment += el.price * el.quantity;
+  });
   $total.textContent = totalPayment.toFixed(2);
 }
 
-//creates html in cart
+// creates html in cart
 function createHMLT() {
   deleteHTML();
   if (cart.length > 0) {
     $paymentBtn.style.visibility = "visible";
-  }else{
+  } else {
     $paymentBtn.style.visibility = "hidden";
   }
   cart.forEach((course) => {
@@ -116,21 +118,18 @@ function createHMLT() {
         <td><button class="x-button" id="x-button-${id}" data-id="${id}" onclick="deleteCourse(${id})">x</button></td>
       `;
     $coursesList.appendChild(tr);
-
-
   });
 }
 
 //deletes course with "x" button
 function deleteCourse(btnId) {
   const selectedBtn = document.querySelector(`#x-button-${btnId}`);
-  courses.filter(c=>c.quantity = 1);
+  courses.filter((c) => (c.quantity = 1));
   cart = cart.filter((c) => c.id != selectedBtn.dataset.id);
   createHMLT();
   setTotalPayment();
 
   showMessage("Curso borrado con éxito");
-  
 }
 
 //scroll animation for each course
@@ -172,8 +171,97 @@ function resetCart() {
   showMessage("Carrito vaciado con éxito");
   totalPayment = 0;
   $total.textContent = totalPayment;
-  courses.forEach(course =>{
+  courses.forEach((course) => {
     course.quantity = 1;
-  })
+  });
 }
 
+//searchs an specific course
+function searchCourse() {
+  removeDisplayNone();
+  coursesAux = [];
+  let coursesContainerCardAux = [];
+  for (let i = $coursesContainerCard.length; i > 0; i--) {
+    coursesContainerCardAux = [
+      ...coursesContainerCardAux,
+      $coursesContainerCard[i - 1],
+    ];
+  }
+
+  courses.forEach((course) => {
+    if (course.name.toLowerCase().includes($searchInput.value.toLowerCase())) {
+      coursesAux = [...coursesAux, course];
+    }
+    coursesAux.forEach((el) => {
+      for (let i = 0; i < coursesAux.length; i++) {
+        for (let j = 0; j < coursesContainerCardAux.length; j++) {
+          if (coursesAux[i].id == coursesContainerCardAux[j].dataset.id) {
+            coursesContainerCardAux = coursesContainerCardAux.filter(curso => curso.dataset.id != coursesAux[i].id)
+          }
+        }
+      }
+    });
+  });
+
+  if (coursesContainerCardAux.length > 0) {
+    coursesContainerCardAux.forEach(el=>{
+      el.classList.add('dn');
+    })
+  } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // $coursesContainerCard.forEach
+
+  // $coursesContainerCard.forEach((card) => {
+  //   if (courseName != card.children[1].children[0].textContent.trim()) {
+
+  //     card.classList.add("dn");
+  //   }
+  // });
+  // console.log(courseName);
+
+  // $coursesContainerCard.forEach(card =>{
+  //   card.classList.add('dn');
+  // })
+
+  //
+  //   const buttonDiv = document.createElement('div');
+  //   buttonDiv.innerHTML = `
+  //   <div class="back-to-courses">
+  // <button id="complete-list-button" onclick(showCoursesAgain(div))> < < Volver a la lista completa</button>
+  // </div>
+  // `;
+  //   // fragment.appendChild(buttonDiv);
+  //   $coursesContainer.appendChild(fragment);
+}
+
+function removeDisplayNone() {
+  $coursesContainerCard.forEach((card) => {
+    card.classList.remove("dn");
+  });
+}
+
+function showCoursesAgain(value) {
+  $coursesContainerCard.forEach((card) => {
+    card.classList.remove("dn");
+  });
+  value.remove();
+}

@@ -28,7 +28,7 @@ let totalPayment = 0;
 let buttonDiv;
 
 //carrito con localStorage
-//comentar
+//comentar con más detalle
 //payment
 
 //arrays
@@ -205,6 +205,7 @@ function searchCourse() {
   });
   if(coursesAux.length==0){
     showMessage("No se ha encontrado ningún curso con ese nombre", 2);
+    restartSearch();
     return;
   }
   displayNoneToFiltered();

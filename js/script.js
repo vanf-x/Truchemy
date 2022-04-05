@@ -25,6 +25,7 @@ let $coursesContainerCard = document.querySelectorAll(
 let $addCartButton = document.querySelectorAll(".add-cart-button");
 let id = 1;
 let totalPayment = 0;
+let buttonDiv;
 
 //filter en el buscador
 
@@ -196,7 +197,9 @@ function searchCourse() {
       for (let i = 0; i < coursesAux.length; i++) {
         for (let j = 0; j < coursesContainerCardAux.length; j++) {
           if (coursesAux[i].id == coursesContainerCardAux[j].dataset.id) {
-            coursesContainerCardAux = coursesContainerCardAux.filter(curso => curso.dataset.id != coursesAux[i].id)
+            coursesContainerCardAux = coursesContainerCardAux.filter(
+              (curso) => curso.dataset.id != coursesAux[i].id
+            );
           }
         }
       }
@@ -204,55 +207,25 @@ function searchCourse() {
   });
 
   if (coursesContainerCardAux.length > 0) {
-    coursesContainerCardAux.forEach(el=>{
-      el.classList.add('dn');
-    })
-  } 
+    coursesContainerCardAux.forEach((el) => {
+      el.classList.add("dn");
+    });
+  }
+  restartSearch();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // $coursesContainerCard.forEach
-
-  // $coursesContainerCard.forEach((card) => {
-  //   if (courseName != card.children[1].children[0].textContent.trim()) {
-
-  //     card.classList.add("dn");
-  //   }
-  // });
-  // console.log(courseName);
-
-  // $coursesContainerCard.forEach(card =>{
-  //   card.classList.add('dn');
-  // })
-
-  //
-  //   const buttonDiv = document.createElement('div');
-  //   buttonDiv.innerHTML = `
-  //   <div class="back-to-courses">
-  // <button id="complete-list-button" onclick(showCoursesAgain(div))> < < Volver a la lista completa</button>
-  // </div>
-  // `;
-  //   // fragment.appendChild(buttonDiv);
-  //   $coursesContainer.appendChild(fragment);
+  let $exists = document.querySelector(".back-to-courses");
+  if (!$exists) {
+    buttonDiv = document.createElement("div");
+    buttonDiv.innerHTML = `
+      <div class="back-to-courses">
+    <button id="complete-list-button" onclick="showCoursesAgain(buttonDiv)" style="color: white"> < < Volver a la lista completa</button>
+    </div>
+    `;
+    $coursesContainer.appendChild(buttonDiv);
+  }
 }
 
+//removes display none to hidden elements
 function removeDisplayNone() {
   $coursesContainerCard.forEach((card) => {
     card.classList.remove("dn");
@@ -260,8 +233,11 @@ function removeDisplayNone() {
 }
 
 function showCoursesAgain(value) {
-  $coursesContainerCard.forEach((card) => {
-    card.classList.remove("dn");
-  });
+  removeDisplayNone();
   value.remove();
+  console.log("xd");
+}
+
+function restartSearch() {
+  $searchInput.value = "";
 }

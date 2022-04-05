@@ -311,11 +311,10 @@ main .courses .back-to-courses button {
   background-color: transparent;
   border-color: transparent;
   margin-bottom: 5rem;
-  visibility: hidden;
 }
 main .courses .back-to-courses button:hover {
   cursor: pointer;
-  color: #04db04;
+  color: #04db04 !important;
 }
 
 footer {

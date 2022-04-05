@@ -333,11 +333,11 @@ main {
         background-color: transparent;
         border-color: transparent;
         margin-bottom: 5rem;
-        visibility: hidden;
+        // visibility: hidden;
       }
       button:hover{
         cursor: pointer;
-        color: rgb(4, 219, 4);
+        color: rgb(4, 219, 4)!important;
       }
     }
   }

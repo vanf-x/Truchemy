@@ -314,7 +314,7 @@ main .courses .back-to-courses {
   justify-content: center;
   align-items: center;
   height: 10rem;
-  min-width: 80rem;
+  min-width: 100vw;
 }
 main .courses .back-to-courses button {
   color: green;

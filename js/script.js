@@ -27,12 +27,15 @@ let id = 1;
 let totalPayment = 0;
 let buttonDiv;
 
-//filter en el buscador
+//carrito con localStorage
+//comentar
+//payment
 
 //arrays
 let courses = [];
 let coursesAux = [];
 let cart = [];
+let coursesContainerCardAux = [];
 
 //execution starts
 window.addEventListener("DOMContentLoaded", () => {
@@ -91,6 +94,7 @@ function addCourseToCart(element) {
   showMessage("Curso agregado con éxito");
 }
 
+//calculates total payment
 function setTotalPayment() {
   totalPayment = 0;
   cart.forEach((el) => {
@@ -153,11 +157,15 @@ function deleteHTML() {
 }
 
 //notifiaction message
-function showMessage(message) {
+function showMessage(message, value) {
   const $notification = document.getElementById("notification");
   const p = document.createElement("p");
   p.textContent = message;
   p.classList.add("toast", "success", "show-up-toast");
+  if(value==2){
+  p.classList.remove("success");
+  p.classList.add("error");
+  }
   $notification.appendChild(p);
   setTimeout(() => {
     p.remove();
@@ -181,48 +189,27 @@ function resetCart() {
 function searchCourse() {
   removeDisplayNone();
   coursesAux = [];
-  let coursesContainerCardAux = [];
-  for (let i = $coursesContainerCard.length; i > 0; i--) {
-    coursesContainerCardAux = [
-      ...coursesContainerCardAux,
-      $coursesContainerCard[i - 1],
-    ];
-  }
-
+  coursesContainerCardAux = [];
+  inverseOrdenForCoursesContainerCard();
+  //
   courses.forEach((course) => {
-    if (course.name.toLowerCase().includes($searchInput.value.toLowerCase())) {
+    if (
+      course.name
+        .toLowerCase()
+        .includes($searchInput.value.trim().toLowerCase())
+    ) {
       coursesAux = [...coursesAux, course];
+      // 
     }
-    coursesAux.forEach((el) => {
-      for (let i = 0; i < coursesAux.length; i++) {
-        for (let j = 0; j < coursesContainerCardAux.length; j++) {
-          if (coursesAux[i].id == coursesContainerCardAux[j].dataset.id) {
-            coursesContainerCardAux = coursesContainerCardAux.filter(
-              (curso) => curso.dataset.id != coursesAux[i].id
-            );
-          }
-        }
-      }
-    });
+    filterCourses();
   });
-
-  if (coursesContainerCardAux.length > 0) {
-    coursesContainerCardAux.forEach((el) => {
-      el.classList.add("dn");
-    });
+  if(coursesAux.length==0){
+    showMessage("No se ha encontrado ningún curso con ese nombre", 2);
+    return;
   }
+  displayNoneToFiltered();
   restartSearch();
-
-  let $exists = document.querySelector(".back-to-courses");
-  if (!$exists) {
-    buttonDiv = document.createElement("div");
-    buttonDiv.innerHTML = `
-      <div class="back-to-courses">
-    <button id="complete-list-button" onclick="showCoursesAgain(buttonDiv)" style="color: white"> < < Volver a la lista completa</button>
-    </div>
-    `;
-    $coursesContainer.appendChild(buttonDiv);
-  }
+  backToCoursesButton();
 }
 
 //removes display none to hidden elements
@@ -232,12 +219,60 @@ function removeDisplayNone() {
   });
 }
 
+//function for .back-to-courses button
 function showCoursesAgain(value) {
   removeDisplayNone();
   value.remove();
-  console.log("xd");
 }
 
+  //creates button to bring back all the courses
+function backToCoursesButton(){
+  let $exists = document.querySelector(".back-to-courses");
+  if (!$exists) {
+    buttonDiv = document.createElement("div");
+    buttonDiv.innerHTML = `
+      <div class="back-to-courses">
+    <button class="db" id="complete-list-button" onclick="showCoursesAgain(buttonDiv)" style="color: white; min-width=700px"> < < Volver a la lista completa</button>
+    </div>
+    `;
+    $coursesContainer.appendChild(buttonDiv);
+  }
+}
+
+//restarts search input
 function restartSearch() {
   $searchInput.value = "";
+}
+
+//display none to the filtered courses
+function displayNoneToFiltered() {
+  if (coursesContainerCardAux.length > 0) {
+    coursesContainerCardAux.forEach((el) => {
+      el.classList.add("dn");
+    });
+  }
+}
+//filter courses comparing by id and dataset.id
+function filterCourses() {
+  coursesAux.forEach((el) => {
+    for (let i = 0; i < coursesAux.length; i++) {
+      for (let j = 0; j < coursesContainerCardAux.length; j++) {
+        if (coursesAux[i].id == coursesContainerCardAux[j].dataset.id) {
+          coursesContainerCardAux = coursesContainerCardAux.filter(
+            (course) => course.dataset.id != coursesAux[i].id
+          );
+        }
+      }
+    }
+  });
+}
+
+//inverts order of coursesContainerCard in order todo filter operations succesfully
+function inverseOrdenForCoursesContainerCard(){
+  for (let i = $coursesContainerCard.length; i > 0; i--) {
+    coursesContainerCardAux = [
+      ...coursesContainerCardAux,
+      $coursesContainerCard[i - 1],
+    ];
+  }
 }

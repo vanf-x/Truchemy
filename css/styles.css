@@ -13,8 +13,17 @@
   align-items: center;
 }
 
+.search-error {
+  font-size: 3rem;
+  color: #b30909;
+}
+
 .dn {
   display: none;
+}
+
+.db {
+  display: block;
 }
 
 .m-0 {
@@ -304,6 +313,8 @@ main .courses .back-to-courses {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 10rem;
+  min-width: 80rem;
 }
 main .courses .back-to-courses button {
   color: green;
@@ -368,6 +379,10 @@ footer a {
     justify-content: center;
     max-width: 15rem;
     margin-top: 2rem;
+  }
+
+  .back-to-courses button {
+    font-size: 2.75rem !important;
   }
 }
 @media only screen and (max-width: 486px) {

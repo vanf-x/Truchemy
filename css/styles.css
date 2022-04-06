@@ -59,6 +59,14 @@
     transform: translateY(0);
   }
 }
+#link {
+  color: #39b309;
+}
+
+#link:hover {
+  color: #46e407;
+}
+
 .success {
   background-color: #39b309;
 }
@@ -314,7 +322,7 @@ main .courses .back-to-courses {
   justify-content: center;
   align-items: center;
   height: 10rem;
-  min-width: 100vw;
+  min-width: 70vw;
 }
 main .courses .back-to-courses button {
   color: green;
@@ -328,14 +336,17 @@ main .courses .back-to-courses button:hover {
   color: #04db04 !important;
 }
 
-footer {
+.footer {
   display: flex;
   justify-content: space-around;
   background-color: #1e2126;
   font-size: 2rem;
   padding: 2rem 0;
 }
-footer a {
+.footer ul li {
+  margin: 1rem 0;
+}
+.footer ul li a {
   text-decoration: none;
   color: #eaedf2;
 }
@@ -384,6 +395,16 @@ footer a {
   .back-to-courses button {
     font-size: 2.75rem !important;
   }
+
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .footer ul li {
+    margin: 1rem;
+  }
 }
 @media only screen and (max-width: 486px) {
   .header-top h1 {
@@ -404,6 +425,13 @@ footer a {
     min-width: 35rem;
   }
 
+  #cart-list {
+    font-size: 1.75rem !important;
+  }
+  #cart-list img {
+    width: 80px !important;
+  }
+
   .hero-footer-subtitles h4 {
     margin-top: 4rem;
   }
@@ -414,6 +442,14 @@ footer a {
 
   main .courses h2 {
     font-size: 3rem;
+  }
+
+  .x-button {
+    font-size: 1.5rem !important;
+  }
+
+  .total-amount {
+    font-size: 2.5rem;
   }
 }
 

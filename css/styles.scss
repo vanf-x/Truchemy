@@ -53,7 +53,13 @@
     transform: translateY(0);
   }
 }
+#link{
+  color: rgb(57, 179, 9);
+}
+#link:hover{
+  color: rgb(70, 228, 7);
 
+}
 .success {
   background-color: rgb(57, 179, 9);
 }
@@ -291,9 +297,6 @@ main {
             margin: 5px 0;
             font-weight: normal;
           }
-          img {
-            // width: 40%;
-          }
           .prices {
             display: flex;
             justify-content: space-between;
@@ -335,7 +338,7 @@ main {
       justify-content: center;
       align-items: center;
       height: 10rem;
-      min-width: 100vw;
+      min-width: 70vw;
       button {
         color: green;
         font-size: 4rem;
@@ -351,16 +354,22 @@ main {
     }
   }
 }
-footer {
+.footer {
   display: flex;
   justify-content: space-around;
   background-color: #1e2126;
   font-size: 2rem;
   padding: 2rem 0;
-  a {
-    text-decoration: none;
-    color: #eaedf2;
+  ul{
+    li{
+      margin: 1rem 0;
+      a {
+        text-decoration: none;
+        color: #eaedf2;
+      }
+    }
   }
+
 }
 
 .animated {
@@ -413,6 +422,18 @@ footer {
       font-size: 2.75rem!important;
     }
   } 
+  .footer{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    ul{
+      li{
+        margin: 1rem;
+      }
+    }
+
+  }
 }
 @media only screen and (max-width: 486px) {
   .header-top h1 {
@@ -429,7 +450,12 @@ footer {
   .courses-container-card {
     min-width: 35rem;
   }
-
+  #cart-list {
+    font-size: 1.75rem!important;
+    img{
+      width: 80px!important;
+    }
+  }
   .hero-footer-subtitles {
     h4 {
       margin-top: 4rem;
@@ -441,4 +467,11 @@ footer {
   main .courses h2 {
     font-size: 3rem;
   }
+  .x-button{
+font-size: 1.5rem!important;
+  }
+  .total-amount{
+    font-size: 2.5rem;
+  }
+
 }

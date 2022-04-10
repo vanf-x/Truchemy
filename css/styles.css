@@ -34,6 +34,30 @@
   list-style: none;
 }
 
+.back-to-courses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  min-width: 70vw;
+  margin-top: 5rem;
+}
+.back-to-courses button {
+  font-size: 4rem;
+  background-color: transparent;
+  border-color: red;
+  padding: 1rem 8rem;
+  border-radius: 9rem;
+  transition: all 0.3s;
+  color: red !important;
+}
+.back-to-courses button:hover {
+  cursor: pointer;
+  color: #f73636 !important;
+  border-color: #f73636;
+  transition: all 0.3s;
+}
+
 .toast {
   position: fixed;
   font-size: 2rem;
@@ -99,12 +123,22 @@ header .header-top {
   font-size: 3rem;
   background-color: #1e2126;
 }
-header .header-top h1 {
+header .header-top .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .header-top .logo img {
+  width: 100%;
+  height: auto;
+}
+header .header-top .logo h1 {
   margin: 0;
   color: #eaedf2;
   font-family: "DM Serif Display", serif;
+  cursor: default;
 }
-header .header-top h1 span {
+header .header-top .logo h1 span {
   color: red;
 }
 header .header-top ul .submenu {
@@ -144,6 +178,7 @@ header .header-top ul .submenu:hover #cart #cart-list tbody tr {
 header .header-top ul .submenu:hover #cart button {
   margin: 0.5rem 0;
   font-size: 2rem;
+  transition: all 0.3s;
 }
 header .header-top ul .submenu:hover #cart .reset-btn {
   width: 100%;
@@ -161,15 +196,14 @@ header .header-top ul .submenu:hover #cart .pay-btn {
   padding: 1rem;
   border-color: #00a9c4;
   visibility: hidden;
-}
-header .header-top ul .submenu:hover #cart .pay-btn a {
   text-decoration: none;
   color: white;
   width: 100%;
+  cursor: pointer;
 }
 header .header-top ul .submenu:hover #cart .pay-btn:hover {
   background-color: #08cceb;
-  border-color: #00a9c4;
+  border-color: #08cceb;
 }
 
 .nav-search {
@@ -207,6 +241,7 @@ header .header-top ul .submenu:hover #cart .pay-btn:hover {
   border-bottom: 3px solid black;
   color: red;
   background-color: #151518;
+  transition: all 0.3s;
 }
 .nav-search .nav-search-input button:hover {
   cursor: pointer;
@@ -312,28 +347,149 @@ main .courses .courses-container .courses-container-card .courses-container-card
   border-radius: 7rem;
   margin-top: 2rem;
   transition: all 0.3s;
+  transition: all 0.3s;
 }
 main .courses .courses-container .courses-container-card .courses-container-card-info button:hover {
   background-color: #2c89c4;
   cursor: pointer;
 }
-main .courses .back-to-courses {
+main .payment {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+main .payment .payment-left {
+  width: 55%;
+  background-color: #1e2126;
+  padding: 2rem 0;
+}
+main .payment .payment-left h2 {
+  font-size: 4rem;
+  color: #eaedf2;
+  text-align: center;
+  margin-top: 0;
+}
+main .payment .payment-left h3 {
+  font-size: 3rem;
+  text-align: right;
+  color: #eaedf2;
+  margin-right: 1rem;
+}
+main .payment .payment-left table {
+  margin: 0 auto;
+  font-size: 2rem;
+  color: #eaedf2;
+  background-color: #1e2126;
+}
+main .payment .payment-left table tbody tr {
+  border: 3px solid black;
+}
+main .payment .payment-left table tbody tr td {
+  color: #eaedf2;
+  background-color: #393d44;
+  border-bottom: 3px solid black;
+  text-align: center;
+}
+main .payment .payment-right {
+  width: 40%;
+  min-width: 30rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: #1e2126;
+}
+main .payment .payment-right h2 {
+  color: #eaedf2;
+}
+main .payment .payment-right form input {
+  width: 100%;
+}
+main .payment .payment-right form input[type=text] {
+  background-color: #393d44;
+  border: 0px solid transparent;
+  border-bottom: 3px solid black;
+  color: #eaedf2;
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
+main .payment .payment-right form input[type=submit] {
+  width: 100%;
+  padding: 1rem;
+  color: #eaedf2;
+  background-color: #00a9c4;
+  transition: all 0.3s;
+  border-radius: 0;
+  border-color: #00a9c4;
+  cursor: pointer;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+main .payment .payment-right form input[type=submit]:hover {
+  background-color: #08cceb;
+  border-color: #08cceb;
+}
+main .payment .payment-right form p {
+  margin: 0;
+  font-size: 1.5rem;
+  color: red;
+  text-align-last: left;
+  opacity: 0;
+}
+main .payment .payment-right form .payment-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10rem;
-  min-width: 70vw;
+  width: 100%;
 }
-main .courses .back-to-courses button {
-  color: green;
-  font-size: 4rem;
-  background-color: transparent;
-  border-color: transparent;
-  margin-bottom: 5rem;
+main .payment .payment-right form .payment-buttons button {
+  flex-grow: 1;
+  text-align: center;
+  margin: 1rem 0;
+  border-radius: 0;
+  padding: 0.5rem;
+  color: white;
+  cursor: not-allowed;
 }
-main .courses .back-to-courses button:hover {
-  cursor: pointer;
-  color: #04db04 !important;
+main .payment .payment-right form .payment-buttons .facebook {
+  width: 50%;
+  margin-right: 1px;
+  background-color: #345eb9;
+  border-color: #345eb9;
+}
+main .payment .payment-right form .payment-buttons .google {
+  width: 50%;
+  margin-left: 1px;
+  background-color: #c4402f;
+  border-color: #c4402f;
+}
+
+.payment-success {
+  min-height: 80vh;
+  text-align: center;
+  padding: 10rem;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #eaedf2;
+}
+.payment-success h3 {
+  font-size: 6rem;
+  margin: 0;
+}
+.payment-success h3 span {
+  color: red;
+}
+.payment-success p {
+  margin: 0;
+  font-size: 3rem;
+}
+.payment-success p span {
+  color: red;
 }
 
 .footer {
@@ -373,6 +529,17 @@ main .courses .back-to-courses button:hover {
 .hero-footer-subtitles h4 {
     font-size: 1rem;
   }
+
+  .payment .payment-left {
+    margin: 2rem;
+    min-width: 50rem;
+  }
+  .payment .payment-right {
+    min-width: 35rem !important;
+    font-size: 2rem;
+    padding: 0;
+    background-color: #1e2126;
+  }
 }
 @media only screen and (max-width: 767px) {
   .courses-container {
@@ -396,6 +563,16 @@ main .courses .back-to-courses button:hover {
     font-size: 2.75rem !important;
   }
 
+  .payment .payment-left {
+    min-width: 35rem;
+  }
+  .payment .payment-left table tbody tr td img {
+    display: none;
+  }
+  .payment .payment-right {
+    min-width: 35rem !important;
+  }
+
   .footer {
     flex-direction: column;
     justify-content: center;
@@ -407,8 +584,12 @@ main .courses .back-to-courses button:hover {
   }
 }
 @media only screen and (max-width: 486px) {
+  .back-to-courses button {
+    font-size: 1.75rem !important;
+  }
+
   .header-top h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .submenu i {
@@ -450,6 +631,50 @@ main .courses .back-to-courses button:hover {
 
   .total-amount {
     font-size: 2.5rem;
+  }
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
   }
 }
 

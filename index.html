@@ -13,10 +13,11 @@
         <div id="notification"></div>
         <header>
             <div class="header-top">
-                <h1>
-                    <span>T</span>
-                    ruchemy
-                </h1>
+
+                <div class="logo">
+                    <a href="index.html"><img src="./assets/logo letra.png" alt="logo"></a>
+                    <h1><span>T</span>ruchemy</h1>
+                </div>
                 <ul style="list-style: none;">
                     <li class="submenu">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -31,13 +32,15 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody id="courses-list">
-                                </tbody>
+                                <tbody id="courses-list"></tbody>
                             </table>
-                            <p class="total-amount"style="text-align: right;">Total: $<span id="total">0.00</span></p>
-                            <button class="reset-btn" id="reset-btn" >Vaciar carrito</button>
+                            <p class="total-amount" style="text-align: right;">
+                                Total: $
+                                <span id="total">0.00</span>
+                            </p>
+                            <button class="reset-btn" id="reset-btn">Vaciar carrito</button>
                             <button class="pay-btn" id="pay-btn">
-                                <a href="./html/payment.html">Proceder a pagar</a>
+                                Proceder a pagar
                             </button>
                         </div>
                     </li>
@@ -47,7 +50,13 @@
         <div class="nav-search">
             <label for="search" style="margin-right: 10px;">Aprendé algo nuevo!</label>
             <div class="nav-search-input">
-                <input type="text" id="search" name="search" style="padding-left: 10px;" placeholder="Buscá tu próximo curso">
+                <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    style="padding-left: 10px;"
+                    placeholder="Buscá tu próximo curso"
+                >
                 <button id="search-button">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -80,11 +89,9 @@
                     </div>
                 </footer>
             </section>
-            <section class="courses">
+            <section class="courses" id="courses-section">
                 <h2>Cursos en línea</h2>
-
                 <div class="courses-container" id="courses-container">
-
                     <div class="courses-container-card animated" data-id="1">
                         <div class="courses-container-card-img">
                             <img src="./assets/curso1.jpg" alt="curso1">
@@ -95,7 +102,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button1" data-id="1">Agregar</button>
                         </div>
@@ -110,7 +120,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button2" data-id="2">Agregar</button>
                         </div>
@@ -125,7 +138,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button3" data-id="3">Agregar</button>
                         </div>
@@ -140,7 +156,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button4" data-id="4">Agregar</button>
                         </div>
@@ -155,7 +174,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button5" data-id="5">Agregar</button>
                         </div>
@@ -170,7 +192,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button6" data-id="6">Agregar</button>
                         </div>
@@ -185,7 +210,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button7" data-id="7">Agregar</button>
                         </div>
@@ -200,7 +228,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button8" data-id="8">Agregar</button>
                         </div>
@@ -215,7 +246,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button9" data-id="9">Agregar</button>
                         </div>
@@ -230,7 +264,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button10" data-id="10">Agregar</button>
                         </div>
@@ -245,7 +282,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button11" data-id="11">Agregar</button>
                         </div>
@@ -260,7 +300,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button12" data-id="12">Agregar</button>
                         </div>
@@ -275,7 +318,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button13" data-id="13">Agregar</button>
                         </div>
@@ -290,7 +336,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button14" data-id="14">Agregar</button>
                         </div>
@@ -305,7 +354,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button15" data-id="15">Agregar</button>
                         </div>
@@ -320,7 +372,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button16" data-id="16">Agregar</button>
                         </div>
@@ -335,7 +390,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button17" data-id="17">Agregar</button>
                         </div>
@@ -350,7 +408,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button18" data-id="18">Agregar</button>
                         </div>
@@ -365,7 +426,10 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button19" data-id="19">Agregar</button>
                         </div>
@@ -380,14 +444,69 @@
                             <img src="./assets/estrellas.png" alt="stars">
                             <div class="prices">
                                 <p class="line-through">$89.99</p>
-                                <p class="red">$<span>9.99</span></p>
+                                <p class="red">
+                                    $
+                                    <span>10</span>
+                                </p>
                             </div>
                             <button class="add-cart-button" id="button20" data-id="20">Agregar</button>
                         </div>
                     </div>
-
                 </div>
+            </section>
+            <section class="payment" id="payment-container">
+                <div class="payment-left">
+                    <h2>Tu cesta</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cant.</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payment-courses-list">
+                            
+                        </tbody>
+                    </table>
+                    <h3>Total: $<span id="total-invoice"></span></h3>
+                </div>
+                <div class="payment-right">
+                    <h2>Completá tus datos</h2>
+                    <form action="" id="form">
+                        <div class="user-name">
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                value="Isaac Asimov"
+                                disabled
+                            >
+                        </div>
+                        <p id="name-error">El nombre introducido no es correcto</p>
+                        <div class="user-mail">
+                            <input
+                                type="text"
+                                id="usermail"
+                                name="usermail"
+                                value="IsaacAsimov@gmail.com"
+                                disabled
+                            >
+                        </div>
+                        <p id="mail-error">El mail introducido no es correcto</p>
+                        <div class="payment-buttons">
+                            <button class="facebook" id="facebook" disabled>Facebook</button>
+                            <button class="google" id="google" disabled>Google</button>
 
+                        </div>
+                        <input type="submit" value="Pagar">
+                    </form>
+                </div>
+            </section>
+            <section class="payment-success" id="payment-success">
+                <h3>Muchas gracias, <span id="success-user-name"></span></h3>
+                <p>Ya podés acceder a tus cursos, recibirás la factura en tu correo <span id="success-user-mail"></span></p>
             </section>
         </main>
         <footer class="footer">
@@ -419,7 +538,9 @@
                         <a href="#">Contáctanos</a>
                     </li>
                     <li>
-                        <a id="link" href="https://vanf-x.github.io/portfolio/" target="_blank">Portfolio del desarrollador</a>
+                        <a
+                            href="#"
+                        >Sobre el desarrollador</a>
                     </li>
                 </ul>
             </section>

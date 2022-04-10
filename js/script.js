@@ -8,7 +8,8 @@ class Course {
     this.quantity = 1;
   }
 }
-//let & const. $makes reference to DOM.
+
+//let & const.
 const $completeListButton = document.querySelector("#complete-list-button");
 const $searchInput = document.querySelector("#search");
 const $searchButton = document.querySelector("#search-button");
@@ -17,6 +18,16 @@ const $paymentBtn = document.querySelector("#pay-btn");
 const $coursesList = document.querySelector("#courses-list");
 const $total = document.querySelector("#total");
 const $coursesContainer = document.querySelector("#courses-container");
+const $coursesSection = document.querySelector("#courses-section");
+const $form = document.querySelector("#form");
+const $paymentCoursesList = document.querySelector("#payment-courses-list");
+const $paymentContainer = document.querySelector("#payment-container");
+const $hero = document.querySelector(".hero");
+const $nav = document.querySelector(".nav-search");
+const $userName = document.querySelector("#username");
+const $userMail = document.querySelector("#usermail");
+const $paymentSuccess = document.querySelector("#payment-success");
+const $totalInvoice = document.querySelector("#total-invoice");
 
 let $animated = document.querySelectorAll(".animated");
 let $coursesContainerCard = document.querySelectorAll(
@@ -27,27 +38,41 @@ let id = 1;
 let totalPayment = 0;
 let buttonDiv;
 
-//payment
-
 //arrays
 let courses = [];
 let coursesAux = [];
 let cart = [];
 let coursesContainerCardAux = [];
 
-//execution starts
+//EXECUTION STARTS HERE
 window.addEventListener("DOMContentLoaded", () => {
-  window.addEventListener("scroll", showScroll); //to line 158
+  hidePayment();
+  window.addEventListener("scroll", showScroll); //to line 181
   $resetButton.addEventListener("click", () => {
-    resetCart(); //to line 193
+    resetCart("El carrito ha sido vaciado con éxito"); //to line 216
   });
-  createObjCourses(); //to line 53
-  addFunctionToAddCartButton(); //to line 67
-  $searchButton.addEventListener("click", searchCourse); //to line 207
+
+  $paymentBtn.addEventListener("click", () => {
+    $coursesSection.classList.add("dn");
+    PaymentCoursesListHTML(); // to line 334
+    backToCoursesButton($paymentContainer); //to line 275
+    showPayment(); //to line 357
+    hideHero(); //to line 363
+  });
+
+  $form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    toPay(); //to line 389
+  });
+
+  createObjCourses(); //to line 78
+  addFunctionToAddCartButton(); //to line 92
+  $searchButton.addEventListener("click", searchCourse); //to line 231
   cart = JSON.parse(localStorage.getItem("cart")) || []; //if local storage is empty, cart = []
-  setTotalPayment(); //to line 109
-  createHMLT(); // to line 118
+  setTotalPayment(); //to line 132
+  createHMLT(); // to line 141
 });
+///////////////////////////////////////////
 
 //creates obj courses & fill courses array
 function createObjCourses() {
@@ -88,16 +113,14 @@ function addCourseToCart(element) {
       }
       let contains = false;
       cart.forEach((el) => {
-        console.log(el); // if the cart element is included in courses, just adds one to quantity
+        // if the cart element is included in courses, just adds one to quantity
         if (el.id == course.id) {
           el.quantity++;
           contains = true;
           return;
         }
       }); //if the cart element is included in courses, it adds it to cart
-      if (contains == false) {
-        cart = [...cart, course];
-      }
+      if (contains == false) cart = [...cart, course];
     }
   });
   setLocalStorageCart();
@@ -116,16 +139,14 @@ function setTotalPayment() {
 
 // creates html in cart using the course object
 function createHMLT() {
-  deleteHTML();
-  if (cart.length > 0) {
-    //if the cart is empty the payment button will be hidden
-    $paymentBtn.style.visibility = "visible";
-  } else {
-    $paymentBtn.style.visibility = "hidden";
-  }
+  deleteHTML($coursesList);
+  cart.length > 0
+    ? ($paymentBtn.style.visibility = "visible")
+    : ($paymentBtn.style.visibility = "hidden"); //if the cart is empty the payment button will be hidden
+  const $fragment = document.createDocumentFragment();
+
   cart.forEach((course) => {
     const { id, picture, name, price } = course;
-
     const tr = document.createElement("tr");
     tr.innerHTML = `
         <td><img src="${picture}" alt="pic-${name}" width=100px></td>
@@ -134,8 +155,10 @@ function createHMLT() {
         <td>${course.quantity}</td>
         <td><button class="x-button" id="x-button-${id}" data-id="${id}" onclick="deleteCourse(${id})">x</button></td>
       `;
-    $coursesList.appendChild(tr);
+    $fragment.appendChild(tr);
   });
+
+  $coursesList.appendChild($fragment);
 }
 
 //deletes course with "x" button
@@ -143,14 +166,14 @@ function deleteCourse(btnId) {
   // inserts function to the button created by createHMLT()
   const selectedBtn = document.querySelector(`#x-button-${btnId}`);
   courses.forEach((course) => {
-    if (course.id == btnId) {
-      course.quantity = 1;
-    }
+    if (course.id == btnId) course.quantity = 1;
   });
+
   cart = cart.filter((c) => c.id != selectedBtn.dataset.id);
   createHMLT();
   setTotalPayment();
   setLocalStorageCart();
+  PaymentCoursesListHTML();
   showMessage("Curso borrado con éxito");
 }
 
@@ -167,9 +190,9 @@ function showScroll() {
 }
 
 //prevents html multiplication
-function deleteHTML() {
-  while ($coursesList.firstChild) {
-    $coursesList.firstChild.remove();
+function deleteHTML(value) {
+  while (value.firstChild) {
+    value.firstChild.remove();
   }
 }
 
@@ -190,17 +213,18 @@ function showMessage(message, value) {
 }
 
 //resets cart
-function resetCart() {
+function resetCart(mje) {
   cart = [];
   setLocalStorageCart();
-  deleteHTML();
+  deleteHTML($coursesList);
   $paymentBtn.style.visibility = "hidden";
-  showMessage("Carrito vaciado con éxito");
+  if (mje != null) showMessage(mje);
   totalPayment = 0;
   $total.textContent = totalPayment;
   courses.forEach((course) => {
     course.quantity = 1;
   });
+  PaymentCoursesListHTML();
 }
 
 //search a specific course
@@ -211,17 +235,13 @@ function searchCourse() {
   fillCoursesContainerCard();
 
   courses.forEach((course) => {
-    if ($searchInput.value.trim() == "") {
-      return;
-    }
+    if ($searchInput.value.trim() == "") return;
     if (
-      course.name
+      course.name //compares course name with search input value
         .toLowerCase()
         .includes($searchInput.value.trim().toLowerCase())
-    ) {
+    )
       coursesAux = [...coursesAux, course];
-      //
-    }
     filterCourses();
   });
 
@@ -232,7 +252,7 @@ function searchCourse() {
   }
   displayNoneToFiltered();
   restartSearch();
-  backToCoursesButton();
+  backToCoursesButton($coursesContainer);
 }
 
 //removes class dn (display-none) from hidden elements
@@ -246,19 +266,22 @@ function removeDisplayNone() {
 function showCoursesAgain(value) {
   removeDisplayNone();
   value.remove();
+  $coursesSection.classList.remove("dn");
+  $paymentContainer.style.display = "none";
+  showHero();
 }
 
 //creates button to bring back all the courses
-function backToCoursesButton() {
+function backToCoursesButton(value) {
   let $exists = document.querySelector(".back-to-courses");
   if (!$exists) {
     buttonDiv = document.createElement("div");
     buttonDiv.innerHTML = `
       <div class="back-to-courses">
-    <button class="db" id="complete-list-button" onclick="showCoursesAgain(buttonDiv)" style="color: white; min-width=700px"> < < Volver a la lista completa</button>
+    <button class="db" id="complete-list-button" onclick="showCoursesAgain(buttonDiv)" style="color: white; min-width=700px">Volver a los cursos</button>
     </div>
     `;
-    $coursesContainer.appendChild(buttonDiv);
+    value.appendChild(buttonDiv);
   }
 }
 
@@ -293,7 +316,7 @@ function filterCourses() {
 
 //helps in function searchCourse()
 function fillCoursesContainerCard() {
-  for (let i = 0; i<$coursesContainerCard.length; i++) {
+  for (let i = 0; i < $coursesContainerCard.length; i++) {
     coursesContainerCardAux = [
       ...coursesContainerCardAux,
       $coursesContainerCard[i],
@@ -304,4 +327,70 @@ function fillCoursesContainerCard() {
 //saves cart info in local storage
 function setLocalStorageCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+//PAYMENT INVOICE SCREEN
+// shows the list of the courses added to cart
+function PaymentCoursesListHTML() {
+  deleteHTML($paymentCoursesList);
+  const $fragment = document.createDocumentFragment();
+  cart.forEach((el) => {
+    const { id, picture, name, price, quantity } = el;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+    <td><img src="${picture}" width="100px"></td>
+    <td> ${name}</td>
+    <td> $${price}</td>
+    <td> x ${quantity}</td>
+    `;
+    $fragment.appendChild(tr);
+  });
+  $paymentCoursesList.appendChild($fragment);
+}
+
+//hide payment screen
+function hidePayment() {
+  $paymentContainer.style.display = "none";
+}
+
+//shows payment screen
+function showPayment() {
+  $paymentContainer.style.display = "flex";
+  $totalInvoice.textContent = totalPayment;
+}
+
+//hide hero & nav
+function hideHero() {
+  $hero.classList.add("dn");
+  $nav.style.display = "none";
+  document.querySelector(".header-top ul").style.visibility = "hidden";
+}
+
+//shows hero & nav
+function showHero() {
+  $hero.classList.remove("dn");
+  $nav.style.display = "flex";
+  document.querySelector(".header-top ul").style.visibility = "visible";
+}
+
+//restarts userName
+function restartUserInfo() {
+  $userName.value = "";
+  $userMail.value = "";
+}
+
+//PAYMENT SUCCESS SCREEN
+//shows payment-success screen
+function showPaymentSuccess() {
+  $paymentSuccess.style.display = "flex";
+}
+
+//ends purchase
+function toPay() {
+  resetCart();
+  document.querySelector("#success-user-name").textContent = $userName.value;
+  document.querySelector("#success-user-mail").textContent = $userMail.value;
+  restartUserInfo();
+  hidePayment();
+  showPaymentSuccess();
 }
